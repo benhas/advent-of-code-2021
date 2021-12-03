@@ -12,6 +12,7 @@ namespace SonarSweep
             return thisMeasure > previousMeasure;
         }
 
+        //Part 1
         public static int CalculateDepthIncreases(int[] depths)
         {
             var increases = 0;
@@ -31,6 +32,12 @@ namespace SonarSweep
             return increases;
         }
 
+        //Part 2
+        public static int CalculateRollingDepthIncreases(int[] depths)
+        {
+            return CalculateDepthIncreases(GetRollingSumArray(depths));
+        }
+        
         internal static int[] GetRollingSumArray(int[] depths)
         {
             var rollingSumsArray = new List<int>();
@@ -57,11 +64,6 @@ namespace SonarSweep
             } while (thirdRollingElement < depths.Length);
             
             return rollingSumsArray.ToArray();
-        }
-
-        public static int CalculateRollingDepthIncreases(int[] depths)
-        {
-            return CalculateDepthIncreases(GetRollingSumArray(depths));
         }
     }
 }
