@@ -2,10 +2,10 @@
 using System.Linq;
 using System.Runtime.CompilerServices;
 
-[assembly: InternalsVisibleTo("SonarSweepTests")]
-namespace SonarSweep
+[assembly: InternalsVisibleTo("AdventOfCode.Tests")]
+namespace AdventOfCode.Days
 {
-    public static class SonarSweep
+    public static class Day1
     {
         private static bool DepthIncrease(int? previousMeasure, int thisMeasure)
         {

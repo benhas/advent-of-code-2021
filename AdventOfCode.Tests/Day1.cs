@@ -1,16 +1,15 @@
-﻿using Microsoft.VisualBasic;
-using Xunit;
+﻿using Xunit;
 
-namespace SonarSweepTests
+namespace AdventOfCode.Tests
 {
-    public class SonarSweepTests
+    public class Day1
     {
         [Fact]
         public void CalculateDepthIncreases_DepthsArray_ReturnIncreases()
         {
             var depths = new[] {199, 200, 208, 210, 200, 207, 240, 269, 260, 263};
             const int expectedIncreases = 7;
-            var foundIncreases = SonarSweep.SonarSweep.CalculateDepthIncreases(depths);
+            var foundIncreases = AdventOfCode.Days.Day1.CalculateDepthIncreases(depths);
             Assert.Equal(expectedIncreases, foundIncreases);
         }
 
@@ -20,7 +19,7 @@ namespace SonarSweepTests
             new int[] {607, 618,618,617,647,716,769,792})]
         public void CalculateDepthRollingSums_DepthsArray_ReturnRollingSumsArray(int[] depths, int[] expectedDepths)
         {
-            var foundDepths = SonarSweep.SonarSweep.GetRollingSumArray(depths);
+            var foundDepths = AdventOfCode.Days.Day1.GetRollingSumArray(depths);
             Assert.Equal(expectedDepths, foundDepths);
         }
     }

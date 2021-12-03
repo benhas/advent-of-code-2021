@@ -1,10 +1,10 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SonarSweep", "SonarSweep\SonarSweep.csproj", "{0296F265-093D-4107-8E59-171C64EE7F4A}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AdventOfCode.Days", "AdventOfCode.Days\AdventOfCode.Days.csproj", "{0296F265-093D-4107-8E59-171C64EE7F4A}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AdventOfCode", "AdventOfCode\AdventOfCode.csproj", "{F4F4FAEC-7030-40B6-BA88-8E5759822918}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AdventOfCode.Console", "AdventOfCode.Console\AdventOfCode.Console.csproj", "{F4F4FAEC-7030-40B6-BA88-8E5759822918}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SonarSweepTests", "SonarSweepTests\SonarSweepTests.csproj", "{0665898A-1529-4102-9ECA-54C1393599D3}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AdventOfCode.Tests", "AdventOfCode.Tests\AdventOfCode.Tests.csproj", "{0665898A-1529-4102-9ECA-54C1393599D3}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
