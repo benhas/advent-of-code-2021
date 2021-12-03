@@ -14,13 +14,12 @@ namespace SonarSweepTests
             Assert.Equal(expectedIncreases, foundIncreases);
         }
 
-        [Fact]
-        public void CalculateDepthRollingSums_DepthsArray_ReturnRollingSumsArray()
+        [Theory]
+        [InlineData(new int[]{199,200,208},new int[]{607})]
+        [InlineData(new int[]{199, 200, 208, 210, 200, 207, 240, 269, 260, 263},
+            new int[] {607, 618,618,617,647,716,769,792})]
+        public void CalculateDepthRollingSums_DepthsArray_ReturnRollingSumsArray(int[] depths, int[] expectedDepths)
         {
-            /*var depths = new[] {199, 200, 208, 210, 200, 207, 240, 269, 260, 263};
-            var expectedDepths = new[] { 607, 618,618,617,647,716,769,792};*/
-            var depths = new[] {199, 200, 208};
-            var expectedDepths = new[] { 607};
             var foundDepths = SonarSweep.SonarSweep.GetRollingSumArray(depths);
             Assert.Equal(expectedDepths, foundDepths);
         }

@@ -1,9 +1,11 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
+using System.Runtime.CompilerServices;
 
+[assembly: InternalsVisibleTo("SonarSweepTests")]
 namespace SonarSweep
 {
-    public class SonarSweep
+    public static class SonarSweep
     {
         private static bool DepthIncrease(int? previousMeasure, int thisMeasure)
         {
@@ -29,28 +31,37 @@ namespace SonarSweep
             return increases;
         }
 
-        public static int[] GetRollingSumArray(int[] depths)
+        internal static int[] GetRollingSumArray(int[] depths)
         {
-            /* WIP */
             var rollingSumsArray = new List<int>();
+
+            var firstRollingElement = 0;
+            var secondRollingElement = 1;
+            var thirdRollingElement = 2;
             
-            if (depths.Length <= 3)
+            do
             {
-                var rollingSumDepth = depths.Sum();
-                rollingSumsArray.Add(rollingSumDepth);
-            }
-            var firstDepth = 0;
-            var secondDepth = 0;
-            var thirdDepth = 0;
-            for (var i = 0; i < depths.Length; i++)
-            {
-                var depthsSum = 0;
-                if (i < 2)
+                var holdingList = new List<int>
                 {
-                    firstDepth = depths[i];
-                }
-            }
+                    depths[firstRollingElement],
+                    depths[secondRollingElement],
+                    depths[thirdRollingElement]
+                };
+
+                rollingSumsArray.Add(holdingList.Sum());
+
+                firstRollingElement++;
+                secondRollingElement++;
+                thirdRollingElement++;
+                
+            } while (thirdRollingElement < depths.Length);
+            
             return rollingSumsArray.ToArray();
+        }
+
+        public static int CalculateRollingDepthIncreases(int[] depths)
+        {
+            return CalculateDepthIncreases(GetRollingSumArray(depths));
         }
     }
 }
