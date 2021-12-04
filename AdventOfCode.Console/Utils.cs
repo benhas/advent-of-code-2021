@@ -1,9 +1,8 @@
 using System;
-using System.Collections;
 using System.Collections.Generic;
 using System.IO;
 
-namespace AdventOfCode
+namespace AdventOfCode.Console
 {
     public static class Utils
     {
@@ -17,6 +16,10 @@ namespace AdventOfCode
             return ConvertStringToTuples(ReadFromFile(ReturnLocation(fileName)));
         }
 
+        public static IEnumerable<string> GetStringArrayFromInput(string fileName)
+        {
+            return ConvertStringToStringArray(ReadFromFile(ReturnLocation(fileName)));
+        }
         private static string ReturnLocation(string fileName)
         {
             var app = Path.GetDirectoryName(System.Reflection.Assembly.GetExecutingAssembly().Location);
@@ -28,6 +31,10 @@ namespace AdventOfCode
             return File.ReadAllText(fileName);
         }
 
+        private static IEnumerable<string> ConvertStringToStringArray(string input)
+        {
+            return input.Split(Environment.NewLine, StringSplitOptions.RemoveEmptyEntries);
+        }
         private static IEnumerable<int> ConvertStringToIntArray(string input)
         {
             return Array.ConvertAll(
