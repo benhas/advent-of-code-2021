@@ -1,14 +1,27 @@
 using System;
 using System.Collections.Generic;
 using System.IO;
+using AdventOfCode.Days.Day6;
 
 namespace AdventOfCode.Console
 {
     public static class Utils
     {
-        public static IEnumerable<int> GetIntArrayFromInput(string fileName)
+        public static IEnumerable<Lanternfish> GetLanternfishListFromInput(string fileName)
         {
-            return ConvertStringToIntArray(ReadFromFile(ReturnLocation(fileName)));
+            var integerArray = GetIntArrayFromInput(fileName, ",");
+            var lanternFishList = new List<Lanternfish>();
+            
+            foreach (var integer in integerArray)
+            {
+             lanternFishList.Add(new Lanternfish(integer));   
+            }
+
+            return lanternFishList;
+        }
+        public static IEnumerable<int> GetIntArrayFromInput(string fileName, string separator)
+        {
+            return ConvertStringToIntArray(ReadFromFile(ReturnLocation(fileName)), separator);
         }
 
         public static IEnumerable<(string, int)> GetTuplesFromInput(string fileName)
@@ -35,10 +48,10 @@ namespace AdventOfCode.Console
         {
             return input.Split(Environment.NewLine, StringSplitOptions.RemoveEmptyEntries);
         }
-        private static IEnumerable<int> ConvertStringToIntArray(string input)
+        private static IEnumerable<int> ConvertStringToIntArray(string input, string separator)
         {
             return Array.ConvertAll(
-                input.Split(Environment.NewLine, StringSplitOptions.RemoveEmptyEntries), int.Parse);
+                input.Split(separator, StringSplitOptions.RemoveEmptyEntries), int.Parse);
         }
 
         private static IEnumerable<(string, int)> ConvertStringToTuples(string input)

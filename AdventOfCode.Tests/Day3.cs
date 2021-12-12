@@ -6,25 +6,6 @@ namespace AdventOfCode.Tests
 {
     public class Day3
     {
-        public void GetPowerConsumption_binaryInput_getsGammaTimesEpsilon()
-        {
-            var binaryInput = new List<string>()
-            {
-                "00100",
-                "11110",
-                "10110",
-                "10111",
-                "10101",
-                "01111",
-                "00111",
-                "11100",
-                "10000",
-                "11001",
-                "00010",
-                "01010"
-            };
-        }
-        
         [Fact]
         public void CalculateDominantBits_binariesInput_stringWithDominantBitsInPositions()
         {
