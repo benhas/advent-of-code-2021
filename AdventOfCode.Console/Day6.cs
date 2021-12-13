@@ -15,24 +15,19 @@ namespace AdventOfCode.Console
             var stopwatch = new Stopwatch();
             stopwatch.Start();
             var daysToProcess = 256;
-            var lanternFishList = Utils.GetLanternfishListFromInput("Day4.txt");
+            var lanternFishList = Utils.GetLanternfishListFromInput("Day6.txt");
             var lanternfishTracker = new LanternfishTracker(lanternFishList.ToList());
-
-            var t = MainAsync(lanternfishTracker, daysToProcess);
-            t.Wait();
+            var results = lanternfishTracker.Process_Days(daysToProcess);
             stopwatch.Stop();
             var ts = stopwatch.Elapsed;
-            System.Console.WriteLine($"Lanternfish after {daysToProcess} days: {t.Result.Count}");
+            
+            System.Console.WriteLine($"Lanternfish after {daysToProcess} days: {results}");
+            
             string elapsedTime = String.Format("{0:00}:{1:00}:{2:00}.{3:00}",
                 ts.Hours, ts.Minutes, ts.Seconds,
                 ts.Milliseconds / 10);
             System.Console.WriteLine($"RunTime {elapsedTime}");
 
-        }
-
-        private static async Task<List<Lanternfish>> MainAsync(LanternfishTracker lanternfishTracker, int daysToProcess)
-        {
-            return await lanternfishTracker.ProcessDays(daysToProcess);
         }
     }
 }

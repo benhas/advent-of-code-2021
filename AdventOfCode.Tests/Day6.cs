@@ -7,7 +7,7 @@ using Xunit;
 
 namespace AdventOfCode.Tests
 {
-    public class Day4
+    public class Day6
     {
         [Theory]
         [ClassData(typeof(TestDataGenerator))]
@@ -25,6 +25,15 @@ namespace AdventOfCode.Tests
             var lanternFishTracker = new LanternfishTracker(day0);
             var result = await lanternFishTracker.ProcessDays(80);
             Assert.Equal(expectedCount, result.Count());
+        }
+
+        [Theory]
+        [ClassData(typeof(TestLanternFishCount))]
+        public void Process_Days_80days_5924fish(List<Lanternfish> day0, int daysToProcess, Int64 expectedCount)
+        {
+            var lanternFishTracker = new LanternfishTracker(day0);
+            var result =  lanternFishTracker.Process_Days(80);
+            Assert.Equal(expectedCount, result);
         }
     }
     public class TestDataGenerator : IEnumerable<object[]>
@@ -122,7 +131,6 @@ namespace AdventOfCode.Tests
         private readonly List<object[]> _data = new List<object[]>
         {
             new object[] {day0, 80, 5934},
-            new object[]{day0, 256, 26984457539}
         };      
 
         public IEnumerator<object[]> GetEnumerator() => _data.GetEnumerator();
