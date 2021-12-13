@@ -8,7 +8,7 @@ using AdventOfCode.Days.Day6;
 
 namespace AdventOfCode.Console
 {
-    public class Day4
+    public class Day6
     {
         public static void Main(string[] args)
         {
